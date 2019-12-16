@@ -10,9 +10,6 @@ timeout(time: 15, unit: 'MINUTES') {
 
            sh "rm -rf target/"
        }
-       stage('Test') {
-           //add junit tests
-       }
        stage('Deploy') {
            def json = readFile(file:'config.json')
            def data = new JsonSlurperClassic().parseText(json)
