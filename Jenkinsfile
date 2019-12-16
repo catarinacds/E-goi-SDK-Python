@@ -9,7 +9,6 @@ timeout(time: 15, unit: 'MINUTES') {
            sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g python -o . -c configPython.json"
 
            sh "rm -rf target/"
-           sh "mvn clean install"
        }
        stage('Test') {
            //add junit tests
