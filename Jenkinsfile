@@ -6,7 +6,6 @@ timeout(time: 15, unit: 'MINUTES') {
            checkout scm
        }
        stage('Build') {
-           sh "rm -rf target/"
        }
        //stage('Test'){
        //     sh "/usr/local/bin/pip install"
