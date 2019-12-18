@@ -6,10 +6,11 @@ timeout(time: 15, unit: 'MINUTES') {
            checkout scm
        }
        stage('Build') {
-           sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g python -o . -c configPython.json"
-
            sh "rm -rf target/"
        }
+       //stage('Test'){
+       //     sh "/usr/local/bin/pip install"
+       //}
        stage('Deploy') {
            def json = readFile(file:'configPython.json')
            def data = new JsonSlurperClassic().parseText(json)
