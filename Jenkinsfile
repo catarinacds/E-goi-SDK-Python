@@ -16,7 +16,7 @@ timeout(time: 15, unit: 'MINUTES') {
        stage('Deploy') {
            def json = readFile(file:'python-sdk/configPython.json')
            def data = new JsonSlurperClassic().parseText(json)
-           def version = data.artifactVersion
+           def version = data.packageVersion
            
            sh "git add python-sdk/"
            sh "git commit -am \"Version:  ${version}\""
